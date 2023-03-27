@@ -194,6 +194,7 @@ if __name__=='__main__':
             time.sleep(20)
         if(over==True):
             break
+        
     print('今日已刷完')
     input('请按回车退出')
     driver.quit()

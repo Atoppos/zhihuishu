@@ -45,4 +45,3 @@ ChromeDriver 下载地址:[http://chromedriver.storage.googleapis.com/index.html
 
 MIT
 
-**Free Software, Hell Yeah!**

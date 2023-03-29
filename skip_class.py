@@ -2,13 +2,15 @@ import base64
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 import time
 from PIL import Image
 import qrcode
 from pyzbar.pyzbar import decode
 import os
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 def load_img():
     src=driver.find_element(By.XPATH,"//div[@class='code-border']/img").get_attribute('src')
@@ -162,7 +164,8 @@ if __name__=='__main__':
         else:
             print('已清理进程')
     input('按回车开始进程')
-    option = webdriver.ChromeOptions()
+    option = Options()
+    option.add_experimental_option('excludeSwitches', ['enable-automation'])
     option.add_argument('-ignore-certificate-errors')
     option.add_argument('-ignore -ssl-errors')
     option.add_argument('---ignore-certificate-errors-spki-list')
@@ -171,9 +174,8 @@ if __name__=='__main__':
     option.add_argument('--headless')
     option.add_argument('--disable-gpu')
     option.add_argument('disable-infobars')
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option('excludeSwitcher', ['enable-automation'])
-    driver = webdriver.Chrome(chrome_options=option,options=options,executable_path='chromedriver.exe')
+    service=Service(executable_path='chromedriver.exe')
+    driver = webdriver.Chrome(options=option,service=service)
     driver.maximize_window()
     driver.get('https://passport.zhihuishu.com/login#qrCodeLogin')
     driver.implicitly_wait(10)
@@ -194,8 +196,6 @@ if __name__=='__main__':
             time.sleep(20)
         if(over==True):
             break
-
-        
     print('今日已刷完')
     input('请按回车退出')
     driver.quit()

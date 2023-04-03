@@ -83,9 +83,9 @@ def find_class():
 def skip_class():
     try:
         driver.find_element(By.XPATH,'//div[@id="app"]/div[1]/div[6]/div[2]/div[1]/i').click()
-        time.sleep(1)
+        time.sleep(2)
         driver.find_element(By.XPATH,'//div[@id="app"]/div[1]/div[6]/div[1]/div[3]/span/button').click()
-        time.sleep(1)
+        time.sleep(2)
     except:
         print('播放页面无弹窗')
 
@@ -109,6 +109,8 @@ def skip_class():
     print('已开始播放')
     ActionChains(driver).move_to_element(contro).click(driver.find_element(By.XPATH,"//div[@class='volumeIcon']")).perform()
     print('已静音')
+    ActionChains(driver).move_to_element(contro).move_to_element(driver.find_element(By.XPATH,"//div[@class='speedBox']")).click(driver.find_element(By.XPATH,"//div[@class='speedTab speedTab15']")).perform()
+    print('已开启1.5倍速')
 
 def answer():
         try:
@@ -171,8 +173,8 @@ if __name__=='__main__':
     option.add_argument('---ignore-certificate-errors-spki-list')
     option.add_argument('--ignore-ssl-error')
     option.add_argument('log-level=2')
-    option.add_argument('--headless')
-    option.add_argument('--disable-gpu')
+    #option.add_argument('--headless')
+    #option.add_argument('--disable-gpu')
     option.add_argument('disable-infobars')
     service=Service(executable_path='chromedriver.exe')
     driver = webdriver.Chrome(options=option,service=service)

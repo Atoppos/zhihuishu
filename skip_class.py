@@ -109,7 +109,7 @@ def skip_class():
     print('已开始播放')
     ActionChains(driver).move_to_element(contro).click(driver.find_element(By.XPATH,"//div[@class='volumeIcon']")).perform()
     print('已静音')
-    ActionChains(driver).move_to_element(contro).move_to_element(driver.find_element(By.XPATH,"//div[@class='speedBox']")).click(driver.find_element(By.XPATH,"//div[@class='speedTab speedTab15']")).perform()
+    ActionChains(driver).move_to_element(contro).move_to_element(driver.find_element(By.XPATH,"//div[@class='speedBox']")).click(driver.find_element(By.XPATH,"//div[@class='speedList']/div[1]")).perform()
     print('已开启1.5倍速')
 
 def answer():
@@ -175,7 +175,10 @@ if __name__=='__main__':
     option.add_argument('log-level=2')
     option.add_argument('--headless')
     option.add_argument('--disable-gpu')
+    option.add_argument("--window-size=1920x1080")
+    option.add_argument('--disable-blink-features=AutomationControlled')
     option.add_argument('disable-infobars')
+    option.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
     service=Service(executable_path='chromedriver.exe')
     driver = webdriver.Chrome(options=option,service=service)
     driver.maximize_window()

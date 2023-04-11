@@ -182,7 +182,7 @@ if __name__=='__main__':
     service=Service(executable_path='chromedriver.exe')
     driver = webdriver.Chrome(options=option,service=service)
     driver.maximize_window()
-    driver.get('https://passport.zhihuishu.com/login#qrCodeLogin')
+    driver.get('https://passport.zhihuishu.com/login?service=https://onlineservice-api.zhihuishu.com/gateway/f/v1/login/gologin#qrCodeLogin')
     driver.implicitly_wait(10)
     log_in()
     find_class()

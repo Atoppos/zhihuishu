@@ -1,7 +1,5 @@
 # 智慧树刷课程序
 
----
-
 智慧树刷课程序，可直接运行，使用Python中的selenium库，程序已打包为.exe文件，功能如下:
 1. 1.5倍速
 2. 自动静音
@@ -12,15 +10,11 @@
 
 ## 需要工具
 
----
-
 谷歌浏览器、ChromeDriver (**需与浏览器版本匹配**)
 
 ChromeDriver 下载地址:[http://chromedriver.storage.googleapis.com/index.html]
 
 ## 使用步骤
-
----
 
 1. 运行exe文件，弹出控制台窗口
 2. 按提示选择
@@ -29,8 +23,6 @@ ChromeDriver 下载地址:[http://chromedriver.storage.googleapis.com/index.html
 5. 开始刷课
 
 ## 注意⚠️
-
----
 
 - 需要将ChromeDriver与exe文件放在同一目录下
 - 首次使用，需将控制台字体改为MS Gothic，以解决二维码图片加载问题，具体方法:
